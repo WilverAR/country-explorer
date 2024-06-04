@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <section class="container_view_two">
-    <h1>View Two</h1>
-  </section>
+
 </template>
 
 <style scoped>

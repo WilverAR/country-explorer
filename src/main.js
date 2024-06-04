@@ -28,6 +28,7 @@ import Avatar from "primevue/avatar";
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
 import InputText from "primevue/inputtext";
+import Toolbar from "primevue/toolbar";
 
 
 
@@ -41,11 +42,12 @@ app.use(PrimeVue);
 app.use(router);
 
 app.component('PV_SideBar', SideBar);
-app.component('PV_Button', Button);
+app.component('p_button', Button);
 app.component('p-avatar', Avatar);
 app.component('p-icon-field', IconField);
 app.component('p-input-icon', InputIcon);
 app.component('p-input-text', InputText);
+app.component('p-toolbar', Toolbar);
 
 app.directive('animateonscroll', AnimateOnScroll);
 

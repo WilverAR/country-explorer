@@ -19,6 +19,5 @@ import Sidebar from "@/components/SideBar.vue";
   height: 100vh;
   display: flex;
   gap: 1rem;
-  background: yellowgreen;
 }
 </style>
