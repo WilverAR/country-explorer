@@ -1,9 +1,7 @@
+@import "variables.css";
+
 body {
-    min-height: 100vh;
     margin: 0;
-    transition:
-            color 0.5s,
-            background-color 0.5s;
     line-height: 1.6;
     font-family:
             Inter,
@@ -19,10 +17,4 @@ body {
             'Helvetica Neue',
             sans-serif;
     font-size: 15px;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    &::-webkit-scrollbar {
-        width: 0;
-    }
 }

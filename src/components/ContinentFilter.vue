@@ -22,10 +22,8 @@ const toggleContinent = (continent) => {
       selectedContinents.value.splice(index, 1);
     }
   }
-  console.log(selectedContinents.value);
   emit('update-continent', selectedContinents.value);
 };
-
 const clearFilter = () => {
   continents.value.forEach(continent => {
     continent.selected = false;
@@ -34,15 +32,15 @@ const clearFilter = () => {
   emit('update-continent', selectedContinents.value);
 };
 </script>
-<!--CHANGE THE CODE!!!-->
+
 <template>
-  <div class="filter-container">
+  <div class="container-filter">
     <div class="filter-header">
-      <span>Filter for continents</span>
-      <p_button @click="clearFilter" class="clear-button">Clear</p_button>
+      <span>{{$t('home.continentFilter.filterForContinents')}}</span>
+      <p-button @click="clearFilter" class="clear-button">{{$t('home.continentFilter.clear')}}</p-button>
     </div>
 
-    <div class="continents-content flex flex-wrap">
+    <div class="continents-content flex flex-wrap gap-1">
       <div class="continent-item flex flex-column" v-for="continent in continents" :key="continent.name" :class="{ 'selected': continent.selected }" @click="toggleContinent(continent)">
         <img class="continent-image" :src="continent.image" :alt="continent.name" width="125" height="125"/>
         <span>{{ continent.name }}</span>
@@ -52,11 +50,10 @@ const clearFilter = () => {
 </template>
 
 <style scoped>
-.filter-container {
+.container-filter {
   width: 100%;
   border-radius: 2rem;
 }
-
 .filter-header {
   display: flex;
   justify-content: space-between;
@@ -70,7 +67,6 @@ const clearFilter = () => {
     cursor: pointer;
   }
 }
-
 .continents-content {
   .continent-item {
     padding: 0.5rem;
@@ -78,13 +74,14 @@ const clearFilter = () => {
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
+  .continent-image:hover {
+    border: 1px solid rgba(3, 28, 38, 0.8);
+  }
 }
-
 .continent-item.selected {
   background: rgba(3, 28, 38, 0.5);
   color: whitesmoke;
 }
-
 .continent-image {
   object-fit: cover;
   border-radius: 0.5rem;

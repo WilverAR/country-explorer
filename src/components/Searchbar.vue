@@ -1,59 +1,52 @@
 <script setup>
 import { ref } from 'vue';
-import Continents from "@/components/Continents.vue";
+import ContinentFilter from "@/components/ContinentFilter.vue";
 
 const emit = defineEmits(['update-search', 'update-continent']);
 const search = ref('');
+const op = ref();
 
 const onVisible = (event) => {
   op.value.toggle(event);
 }
 const updateContinent = (continent) => {
-  console.log("como la es envio por aqui?: ", continent);
   emit('update-continent', continent);
 };
 const onInput = () => {
   emit('update-search', search.value);
 };
-const op = ref();
+
 </script>
 
 <template>
-  <div class="container_searchbar flex flex-column align-items-center">
-    <p-toolbar class="container_toolbar">
+  <div class="searchbar flex flex-column align-items-center">
+    <p-toolbar class="toolbar">
       <template #start>
         <div class="card flex flex-column gap-2">
-          <span>Country</span>
-          <input class="custom-input-tablet" @click="onVisible" v-model="search" @input="onInput" placeholder="Write" />
+          <span>{{$t('home.searchBar.country')}}</span>
+          <input class="custom-input-tablet" @click="onVisible" v-model="search" @input="onInput" :placeholder="$t('home.searchBar.write')" />
         </div>
       </template>
       <template #end>
         <div class="flex align-items-center">
-          <p_button class="button btn_left" icon="pi pi-search" label="Search"></p_button>
-          <p_button class="button btn_right" icon="pi pi-search" label=""></p_button>
+          <p-button class="button btn-left" icon="pi pi-search" :label="$t('home.searchBar.search')"></p-button>
+          <p-button class="button btn-right" icon="pi pi-search" label=""></p-button>
         </div>
       </template>
     </p-toolbar>
     <p-overlay-panel ref="op" style="width: max-content">
       <div class="container-continents flex justify-content-center">
-        <Continents @update-continent="updateContinent($event)"></Continents>
+        <ContinentFilter @update-continent="updateContinent($event)"></ContinentFilter>
       </div>
     </p-overlay-panel>
   </div>
 </template>
 
 <style>
-
-.container_searchbar {
-}
-.container_toolbar {
+.toolbar {
   border-radius: 5rem;
   width: min(100%, 1024px);
 }
-.container-continents {
-
-}
-
 .card {
   margin-left: 1.5rem;
 }
@@ -62,6 +55,7 @@ const op = ref();
   height: 50px;
   margin-right: 0.5rem;
   border-radius: 5rem;
+  background: rgba(3, 28, 38, 0.8);
 }
 input:focus {
   border-bottom: 2px solid #007BFF;
@@ -73,7 +67,7 @@ input {
   background-color: transparent;
   font-size: 1rem;
 }
-.btn_right {
+.btn-right {
   display: none;
 }
 
@@ -81,10 +75,10 @@ input {
   input {
     width: 100px;
   }
-  .btn_left {
+  .btn-left {
     display: none;
   }
-  .btn_right {
+  .btn-right {
     display: block;
   }
   .button {

@@ -1,11 +1,8 @@
-@import './base.css';
+@import 'base.css';
 
 * {
   box-sizing: border-box;
   text-decoration: none;
-}
-:root {
-  --gap: 2rem;
 }
 
 html {
@@ -31,13 +28,16 @@ main {
   display: flex;
   flex-direction: column;
   overflow-Y: scroll;
-  padding-inline: 2rem;
+  padding-inline: var(--gap);
   background: #F4F8F9;
 }
+
 section {
   width: 100%;
   border-radius: 10px;
+  padding-block: var(--gap);
 }
+
 h3, p {
   margin: 0;
 }
@@ -45,8 +45,5 @@ h3, p {
 @media screen and (max-width: 425px) {
   main {
     padding-inline: 0.5rem;
-  }
-  :root {
-    --gap: 1rem;
   }
 }

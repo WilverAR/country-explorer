@@ -13,13 +13,13 @@ const router = createRouter({
       component: () => import('../views/Home.vue'),
     },
     {
-      path: '/view_one',
-      name: 'view_one',
+      path: '/view-one',
+      name: 'view-one',
       component: () => import('../views/ViewOne.vue'),
     },
     {
-      path: '/view_two',
-      name: 'view_two',
+      path: '/view-two',
+      name: 'view-two',
       component: () => import('../views/ViewTwo.vue'),
     },
     {
@@ -29,5 +29,4 @@ const router = createRouter({
     }
   ]
 })
-
 export default router

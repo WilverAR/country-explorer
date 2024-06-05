@@ -4,10 +4,10 @@
 
 <template>
   <div class="container-notFound">
-    <h1>404: Page not found</h1>
-    <h3>The requested URL <b>"/{{ route }}"</b> was not found on this server.</h3>
+    <h1>{{$t('notFound.title')}}</h1>
+    <h3>{{$t('notFound.requestedUrl')}}<b>"/{{ route }}"</b>{{$t('notFound.message')}}</h3>
     <router-link to="/home">
-      <p_button label="Go back to Home" severity="success"></p_button>
+      <p-button label="Go back to Home" severity="success"></p-button>
     </router-link>
   </div>
 </template>

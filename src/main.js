@@ -1,4 +1,4 @@
-import './assets/main.css'
+import './assets/css/main.css'
 import 'primevue/resources/themes/aura-light-noir/theme.css'
 import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
@@ -7,6 +7,7 @@ import 'primeflex/primeflex.css';
 import { createApp, provide, h } from 'vue'
 import App from './App.vue'
 import router from './router'
+import i18n from './locales/i18n'
 
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client/core';
 import { DefaultApolloClient } from '@vue/apollo-composable';
@@ -42,9 +43,10 @@ const app = createApp({
 });
 app.use(PrimeVue);
 app.use(router);
+app.use(i18n);
 
-app.component('PV_SideBar', SideBar);
-app.component('p_button', Button);
+app.component('p-sidebar', SideBar);
+app.component('p-button', Button);
 app.component('p-avatar', Avatar);
 app.component('p-icon-field', IconField);
 app.component('p-input-icon', InputIcon);

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section class="container_view_two">
+  <section class="container-view-two">
     <h1>View Two</h1>
   </section>
 </template>
