@@ -2,8 +2,8 @@
 import { ref, computed } from 'vue';
 import { useQuery } from '@vue/apollo-composable';
 import gql from 'graphql-tag';
-import SearchBar from '../components/SearchBar.vue';
-import Card from '../components/Card.vue';
+import Toolbar from '../components/Toolbar.vue';
+import Cards from '../components/Cards.vue';
 
 const GET_COUNTRIES = gql`
   query {
@@ -16,79 +16,37 @@ const GET_COUNTRIES = gql`
     }
   }
 `;
-/*
-  HERE IS THE QUERY TO GET IMAGES FROM THE PLACES CORRESPONDING TO THE COUNTRIES
-https://api.unsplash.com/search/photos?query=peru
-
-  const GET_IMAGES = gql`
-  query {
-    images {
-      urls {
-        regular
-      }
-    }
-  }
-`;
-
-  const { result: images } = useQuery(GET_IMAGES);
-  console.log(images.value);
-
-  const filteredImages = computed(() => {
-    if (!images.value) return [];
-    return images.value.images.filter(image =>
-        image.urls.regular.toLowerCase().includes(search.value.toLowerCase())
-    );
-  });
-
-  const updateSearch = (newSearch) => {
-    search.value = newSearch;
-    console.log(search.value);
-  };
-
-  HERE IS THE QUERY TO GET IMAGES FROM THE FLAG CORRESPONDING TO THE COUNTRIES
-  const GET_FLAGS = gql`
-  query {
-    flags {
-      svgFile
-    }
-  }
-`;
-
-    const { result: flags } = useQuery(GET_FLAGS);
-    console.log(flags.value);
-
-    const filteredFlags = computed(() => {
-      if (!flags.value) return [];
-      return flags.value.flags.filter(flag =>
-          flag.svgFile.toLowerCase().includes(search.value.toLowerCase())
-      );
-    });
-
-    const updateSearch = (newSearch) => {
-      search.value = newSearch;
-      console.log(search.value);
-    };
-*/
 const search = ref('');
+const continents = ref([]);
 const { result } = useQuery(GET_COUNTRIES);
 const updateSearch = (newSearch) => {
   search.value = newSearch;
-  console.log(search.value);
 };
+const updateContinent = (continentName) => {
+  console.log("como la es envio?: ", continentName);
+  continents.value = continentName;
+};
+
+/*debo retornar todos los paises que son de europa!*/
+
+
 const filteredCountries = computed(() => {
   if (!result.value) return [];
   console.log(result.value);
-  return result.value.countries.filter(country =>
-      country.name.toLowerCase().includes(search.value.toLowerCase())
-  );
+  return result.value.countries.filter(country => {
+    const matchesSearch = search.value !== '' ? country.name.toLowerCase().includes(search.value.toLowerCase()) : true;
+    const matchesContinent = continents.value.length > 0 ? continents.value.includes(country.continent.name) : true;
+    return matchesSearch && matchesContinent;
+  });
 });
+
 </script>
 
 <template>
   <section class="container_home">
-    <SearchBar @update-search="updateSearch($event)"></SearchBar>
+    <Toolbar @update-search="updateSearch($event)" @update-continent="updateContinent($event)"></Toolbar>
     <div class="container-countries flex gap-5 flex-wrap justify-content-center pt-5">
-      <Card v-for="country in filteredCountries" :key="country.code" :country="country"></Card>
+      <Cards v-for="country in filteredCountries" :key="country.code" :country="country"></Cards>
     </div>
   </section>
 </template>

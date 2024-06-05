@@ -28,9 +28,13 @@ main {
   display: flex;
   flex-direction: column;
   overflow-Y: scroll;
+  padding-inline: 2rem;
+  background: #F4F8F9;
 }
 section {
   width: 100%;
-  background-color: var(--surface-section);
   border-radius: 10px;
+}
+h3, p {
+  margin: 0;
 }

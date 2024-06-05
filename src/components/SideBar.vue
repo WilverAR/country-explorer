@@ -8,16 +8,16 @@
       <p-avatar image="src/assets/logo.svg" shape="circle" size="large" style="width: 6rem; height: auto;" />
     </div>
     <router-link to="/home" class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-      <i class="pi pi-home mr-2"></i>
-      <span class="font-medium">Home</span>
+      <i class="pi pi-home mr-3"></i>
+      <span class="text">Home</span>
     </router-link>
     <router-link to="/view_one" class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-      <i class="pi pi-user mr-2"></i>
-      <span class="font-medium">View One</span>
+      <i class="pi pi-user mr-3"></i>
+      <span class="text">User</span>
     </router-link>
     <router-link to="/view_two" class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-      <i class="pi pi-cog mr-2"></i>
-      <span class="font-medium">View Two</span>
+      <i class="pi pi-cog mr-3"></i>
+      <span class="text">Settings</span>
     </router-link>
   </div>
 </template>
@@ -27,7 +27,11 @@
   width: 20rem;
   height: 100vh;
   background: rgba(3, 28, 38, 0.5);
-  z-index: 100;
+  overflow: hidden;
+  transition: width 0.3s;
+}
+.sidebar:hover {
+  width: 250px; /* Ancho original del sidebar al hacer hover */
 }
 
 .router-link-active {
@@ -38,7 +42,13 @@
 }
 @media screen and (max-width: 768px) {
   .sidebar {
-    position: fixed;
+    width: 5rem;
+  }
+  .text {
+    display: none;
+  }
+  .sidebar:hover .text {
+    display: block;
   }
 }
 </style>

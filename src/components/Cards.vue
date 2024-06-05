@@ -15,7 +15,7 @@ const getCountryImage = async (countryName) => {
 
     // Añadir la clave de API a la cabecera de la solicitud
     const headers = {
-      Authorization: `Client-ID 1fxOFzIv3I25i43U3iRpTgOtI7ZLsjrBVeOlt1QsBpw`
+      Authorization: ``/*Client-ID 1fxOFzIv3I25i43U3iRpTgOtI7ZLsjrBVeOlt1QsBpw*/
     };
 
     // Hacer la solicitud a la API de Unsplash
@@ -23,7 +23,6 @@ const getCountryImage = async (countryName) => {
 
     // Extraer la URL small de la primera imagen
     const imageUrl = response.data.results[0]?.urls?.small || 'https://fifpro.org/media/fhmfhvkx/messi-world-cup.jpg?rxy=0.48356841796117644,0.31512414378031967&width=1600&height=1024&rnd=133210253587130000';
-
     // Asignar la URL de la imagen a la referencia
     return imageUrl;
   } catch (error) {
@@ -42,9 +41,12 @@ onMounted(async () => {
     <div class="country_image">
       <img :src="imageUrl" alt="Imagen del país" width="400" height="250"/>
     </div>
-    <div class="country_content">
-      <h2 class="country_name">{{ country.name }}</h2>
-      <p class="country_continent">{{ country.continent.name }}</p>
+    <div class="country_content flex gap-3">
+      <img :src="`https://flagsapi.com/${country.code}/flat/64.png`" alt="Imagen del continente" width="100" height="100"/>
+      <div class="flex flex-column justify-content-center">
+        <h3 class="country_name">{{ country.name }}</h3>
+        <p class="country_continent">{{ country.continent.name }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -52,19 +54,22 @@ onMounted(async () => {
 <style scoped>
 .container_card {
   background: rgba(255, 255, 255, 0.8);
-  width: 400px;
+  flex-grow: 1;
+  width: 300px;
   border: 1px solid #ccc;
-  border-radius: 1rem;
+  border-radius: 2rem;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .country_image {
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
   overflow: hidden;
 }
 
+
 .country_content {
   padding: 1rem;
+  max-height: min-content;
 }
 </style>
