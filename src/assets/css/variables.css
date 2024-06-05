@@ -1,0 +1,50 @@
+:root {
+    --color-main: rgba(28, 56, 69, 1);
+    --color-main-soft: rgba(28, 56, 69, 0.8);
+    --color-main-mute: rgba(28, 56, 69, 0.6);
+
+    --light: #f9fafb;
+    --light-soft: rgba(249, 250, 251, 0.8);
+    --light-mute: rgba(249, 250, 251, 0.6);
+
+    --dark: #000000;
+    --dark-soft: rgba(26, 28, 29, 0.8);
+    --dark-mute: rgba(0, 0, 0, 0.6);
+
+    --padding-main: 10rem;
+    --gap: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: var(--light);
+        --color-background-soft: var(--light-soft);
+        --color-background-mute: var(--light-mute);
+
+        --color-text: var(--dark);
+        --color-text-soft: var(--dark-soft);
+        --color-text-mute: var(--dark-mute);
+
+        --color-card: white;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-background: var(--dark);
+        --color-background-soft: var(--dark-soft);
+        --color-background-mute: var(--dark-mute);
+
+        --color-text: var(--light);
+        --color-text-soft: var(--light-soft);
+        --color-text-mute: var(--light-mute);
+
+        --color-card: black;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --gap: 1rem;
+    }
+}

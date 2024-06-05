@@ -1,0 +1,49 @@
+@import 'base.css';
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-Y: scroll;
+  padding-inline: var(--gap);
+  background: #F4F8F9;
+}
+
+section {
+  width: 100%;
+  border-radius: 10px;
+  padding-block: var(--gap);
+}
+
+h3, p {
+  margin: 0;
+}
+
+@media screen and (max-width: 425px) {
+  main {
+    padding-inline: 0.5rem;
+  }
+}
