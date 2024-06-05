@@ -29,7 +29,9 @@ import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
 import InputText from "primevue/inputtext";
 import Toolbar from "primevue/toolbar";
-
+import ConfirmPopup from "primevue/confirmpopup";
+import OverlayPanel from "primevue/overlaypanel";
+import Dialog from "primevue/dialog";
 
 
 const app = createApp({
@@ -48,6 +50,9 @@ app.component('p-icon-field', IconField);
 app.component('p-input-icon', InputIcon);
 app.component('p-input-text', InputText);
 app.component('p-toolbar', Toolbar);
+app.component('p-confirm-popup', ConfirmPopup);
+app.component('p-overlay-panel', OverlayPanel);
+app.component('p-dialog', Dialog);
 
 app.directive('animateonscroll', AnimateOnScroll);
 

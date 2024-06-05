@@ -4,11 +4,10 @@ import Continents from "@/components/Continents.vue";
 
 const emit = defineEmits(['update-search', 'update-continent']);
 const search = ref('');
-let visible = ref(false);
 
-const onVisible = (value) => {
-  visible.value = value;
-};
+const onVisible = (event) => {
+  op.value.toggle(event);
+}
 const updateContinent = (continent) => {
   console.log("como la es envio por aqui?: ", continent);
   emit('update-continent', continent);
@@ -16,6 +15,7 @@ const updateContinent = (continent) => {
 const onInput = () => {
   emit('update-search', search.value);
 };
+const op = ref();
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const onInput = () => {
       <template #start>
         <div class="card flex flex-column gap-2">
           <span>Country</span>
-          <input class="custom-input" @click="onVisible(true)" v-model="search" @input="onInput" placeholder="Write the country than you want to see" />
+          <input class="custom-input-tablet" @click="onVisible" v-model="search" @input="onInput" placeholder="Write" />
         </div>
       </template>
       <template #end>
@@ -34,23 +34,28 @@ const onInput = () => {
         </div>
       </template>
     </p-toolbar>
-    <div class="flex justify-content-center">
-      <Continents v-if="visible" @update-continent="updateContinent($event)"></Continents>
-    </div>
+    <p-overlay-panel ref="op" style="width: max-content">
+      <div class="container-continents flex justify-content-center">
+        <Continents @update-continent="updateContinent($event)"></Continents>
+      </div>
+    </p-overlay-panel>
   </div>
 </template>
 
-<style scoped>
+<style>
+
 .container_searchbar {
-  width: 100%;
 }
 .container_toolbar {
   border-radius: 5rem;
+  width: min(100%, 1024px);
+}
+.container-continents {
+
 }
 
 .card {
   margin-left: 1.5rem;
-  flex-grow: 1;
 }
 .button {
   width: 150px;
@@ -63,7 +68,7 @@ input:focus {
   outline: none;
 }
 input {
-  width: 500px;
+  width: 400px;
   border: none;
   background-color: transparent;
   font-size: 1rem;
@@ -72,9 +77,9 @@ input {
   display: none;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   input {
-    width: 320px;
+    width: 100px;
   }
   .btn_left {
     display: none;
@@ -86,15 +91,8 @@ input {
     width: 50px;
     height: 50px;
   }
-}
-
-@media screen and (max-width: 768px) {
-  input {
-    width: 200px;
-  }
-  .button {
-    width: 40px;
-    height: 40px;
+  .p-overlaypanel {
+    width: 250px !important;
   }
 }
 </style>

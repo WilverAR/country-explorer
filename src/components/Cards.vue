@@ -1,13 +1,17 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios'; // Importar la biblioteca axios
+import Dialog from '../components/Dialog.vue';
 
 const props = defineProps({
   country: Object
 });
+const visible = ref(false); // Crear una referencia para el estado del diálogo
 
 const imageUrl = ref(''); // Crear una referencia para la URL de la imagen
-
+const onDialog = (value) => {
+  visible.value = value;
+};
 const getCountryImage = async (countryName) => {
   try {
     // Construir la URL de la API de Unsplash
@@ -15,7 +19,7 @@ const getCountryImage = async (countryName) => {
 
     // Añadir la clave de API a la cabecera de la solicitud
     const headers = {
-      Authorization: ``/*Client-ID 1fxOFzIv3I25i43U3iRpTgOtI7ZLsjrBVeOlt1QsBpw*/
+      Authorization: `Client-ID 1fxOFzIv3I25i43U3iRpTgOtI7ZLsjrBVeOlt1QsBpw`
     };
 
     // Hacer la solicitud a la API de Unsplash
@@ -37,9 +41,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container_card">
+  <div class="container_card" @click="onDialog(true)">
     <div class="country_image">
-      <img :src="imageUrl" alt="Imagen del país" width="400" height="250"/>
+      <img :src="imageUrl" alt="Imagen del país" height="250"/>
     </div>
     <div class="country_content flex gap-3">
       <img :src="`https://flagsapi.com/${country.code}/flat/64.png`" alt="Imagen del continente" width="100" height="100"/>
@@ -49,24 +53,33 @@ onMounted(async () => {
       </div>
     </div>
   </div>
+  <Dialog v-if="visible" :key="country.code" :country="country" :imageUrl="imageUrl"></Dialog>
 </template>
 
 <style scoped>
 .container_card {
   background: rgba(255, 255, 255, 0.8);
   flex-grow: 1;
-  width: 300px;
-  border: 1px solid #ccc;
+  width: 350px;
   border-radius: 2rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+.container_card:hover {
+  background: black;
+  color: whitesmoke;
+  cursor: pointer;
 }
 
 .country_image {
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
   overflow: hidden;
-}
 
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
 
 .country_content {
   padding: 1rem;

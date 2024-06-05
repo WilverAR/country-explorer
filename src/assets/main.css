@@ -4,6 +4,9 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+:root {
+  --gap: 2rem;
+}
 
 html {
   width: 100%;
@@ -37,4 +40,13 @@ section {
 }
 h3, p {
   margin: 0;
+}
+
+@media screen and (max-width: 425px) {
+  main {
+    padding-inline: 0.5rem;
+  }
+  :root {
+    --gap: 1rem;
+  }
 }
