@@ -1,0 +1,1 @@
+import{f as e,o,h as t,j as s}from"./index-C80v-RfN.js";const c={},n={class:"container-view-two"},_=s("h1",null,"View Two",-1),a=[_];function r(i,d){return o(),t("section",n,a)}const l=e(c,[["render",r]]);export{l as default};

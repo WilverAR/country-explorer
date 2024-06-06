@@ -3,11 +3,11 @@ import { ref } from 'vue';
 
 const emit = defineEmits(['update-continent']);
 const continents = ref([
-  { name: 'Europe', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/europa.png?alt=media&token=b67d126c-d18b-4fb5-a7de-28aad45b2bee', selected: false },
-  { name: 'Asia', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/asia.png?alt=media&token=ac4dde0a-8363-40b6-ba06-df82ab613175', selected: false },
-  { name: 'Oceania', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/oceania.png?alt=media&token=a7f00ab7-5fa8-467e-8526-333b21f130a6', selected: false },
-  { name: 'Africa', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/africa.png?alt=media&token=35783790-6ce6-4e10-b2aa-4a4ab6ba9ec6', selected: false },
-  { name: 'North America', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/america.png?alt=media&token=1e33593c-cf84-4066-91be-46312a13f7f2', selected: false },
+  { name: 'Europe', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/europa.webp?alt=media&token=175b204c-644b-4f9d-a527-592bc405ab2a', selected: false },
+  { name: 'Asia', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/asia.webp?alt=media&token=9052d9da-bae7-418e-919b-925a76e2a498', selected: false },
+  { name: 'Oceania', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/oceania.webp?alt=media&token=cbade8b0-a0eb-4b30-9f83-5fc694177607', selected: false },
+  { name: 'Africa', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/africa.webp?alt=media&token=e37612ce-7712-4cb7-9fa7-36464de023a4', selected: false },
+  { name: 'North America', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/america.webp?alt=media&token=8109d9d9-becb-45d0-ab2c-9d2e010f3ad7', selected: false },
 ]);
 const selectedContinents = ref([]);
 
