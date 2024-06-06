@@ -1,1 +1,0 @@
-import{f as e,o,h as n,j as s}from"./index-D6sb3SrI.js";const t={},c={class:"container-view-one"},_=s("h1",null,"View One",-1),a=[_];function r(i,d){return o(),n("section",c,a)}const l=e(t,[["render",r]]);export{l as default};

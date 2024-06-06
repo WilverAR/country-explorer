@@ -3,11 +3,11 @@ import { ref } from 'vue';
 
 const emit = defineEmits(['update-continent']);
 const continents = ref([
-  { name: 'Europe', image: '../../src/assets/img/europa.png', selected: false },
-  { name: 'Asia', image: '../../src/assets/img/asia.png', selected: false },
-  { name: 'Oceania', image: '../../src/assets/img/oceania.png', selected: false },
-  { name: 'Africa', image: '../../src/assets/img/africa.png', selected: false },
-  { name: 'North America', image: '../../src/assets/img/america.png', selected: false },
+  { name: 'Europe', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/europa.png?alt=media&token=b67d126c-d18b-4fb5-a7de-28aad45b2bee', selected: false },
+  { name: 'Asia', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/asia.png?alt=media&token=ac4dde0a-8363-40b6-ba06-df82ab613175', selected: false },
+  { name: 'Oceania', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/oceania.png?alt=media&token=a7f00ab7-5fa8-467e-8526-333b21f130a6', selected: false },
+  { name: 'Africa', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/africa.png?alt=media&token=35783790-6ce6-4e10-b2aa-4a4ab6ba9ec6', selected: false },
+  { name: 'North America', image: 'https://firebasestorage.googleapis.com/v0/b/country-explorer-a5f57.appspot.com/o/america.png?alt=media&token=1e33593c-cf84-4066-91be-46312a13f7f2', selected: false },
 ]);
 const selectedContinents = ref([]);
 
