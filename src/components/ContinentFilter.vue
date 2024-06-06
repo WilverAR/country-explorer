@@ -3,11 +3,11 @@ import { ref } from 'vue';
 
 const emit = defineEmits(['update-continent']);
 const continents = ref([
-  { name: 'Europe', image: '../../src/assets/images/europa.png', selected: false },
-  { name: 'Asia', image: '../../src/assets/images/asia.png', selected: false },
-  { name: 'Oceania', image: '../../src/assets/images/oceania.png', selected: false },
-  { name: 'Africa', image: '../../src/assets/images/africa.png', selected: false },
-  { name: 'North America', image: '../../src/assets/images/america.png', selected: false },
+  { name: 'Europe', image: '../../src/assets/img/europa.png', selected: false },
+  { name: 'Asia', image: '../../src/assets/img/asia.png', selected: false },
+  { name: 'Oceania', image: '../../src/assets/img/oceania.png', selected: false },
+  { name: 'Africa', image: '../../src/assets/img/africa.png', selected: false },
+  { name: 'North America', image: '../../src/assets/img/america.png', selected: false },
 ]);
 const selectedContinents = ref([]);
 

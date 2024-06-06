@@ -11,7 +11,7 @@ const toggleLanguage = () => {
 <template>
   <div class="sidebar flex flex-column align-content-center gap-3 p-3">
     <div class="flex align-items-center justify-content-center flex-shrink-0">
-      <img src="../../src/assets/logo.png" style="max-width: 3rem; height: auto;"  alt="Image logo"/>
+      <img src="../assets/img/logo.png" style="max-width: 3rem; height: auto;" alt="Image logo"/>
     </div>
     <router-link to="/home" class="view flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
       <i class="pi pi-home"></i>
