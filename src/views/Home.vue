@@ -24,7 +24,7 @@ const GET_COUNTRIES = gql`
 `;
 const search = ref('');
 const continents = ref([]);
-const { result } = useQuery(GET_COUNTRIES);
+const { result, loading } = useQuery(GET_COUNTRIES);
 const updateSearch = (newSearch) => {
   search.value = newSearch;
 };
@@ -47,14 +47,23 @@ const filteredCountries = computed(() => {
   <section class="home">
     <Toolbar @update-search="updateSearch($event)" @update-continent="updateContinent($event)"></Toolbar>
     <div class="home-content flex flex-wrap justify-content-center">
-      <Cards v-for="country in filteredCountries" :key="country.code" :country="country"></Cards>
+      <div v-if="loading" v-for="i in 10" :key="i" class="container-card-skeleton">
+        <p-skeleton width="100%" height="100%" style="border-radius: 2rem;" />
+      </div>
+      <Cards v-else v-for="country in filteredCountries" :key="country.code" :country="country"></Cards>
     </div>
   </section>
 </template>
 
 <style scoped>
-.home {
+.container-card-skeleton {
+  flex-grow: 1;
+  width: 350px;
+  height: 390px; /* Añadí esta línea para asegurar que el Skeleton tenga la misma altura */
+  gap: var(--gap);
+}
 
+.home {
   .home-content {
     gap: var(--gap);
     padding-top: var(--gap);

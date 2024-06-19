@@ -33,6 +33,8 @@ import Toolbar from "primevue/toolbar";
 import ConfirmPopup from "primevue/confirmpopup";
 import OverlayPanel from "primevue/overlaypanel";
 import Dialog from "primevue/dialog";
+import Skeleton from "primevue/skeleton";
+import Image from "primevue/image";
 
 
 const app = createApp({
@@ -55,6 +57,8 @@ app.component('p-toolbar', Toolbar);
 app.component('p-confirm-popup', ConfirmPopup);
 app.component('p-overlay-panel', OverlayPanel);
 app.component('p-dialog', Dialog);
+app.component('p-skeleton', Skeleton);
+app.component('p-image', Image);
 
 app.directive('animateonscroll', AnimateOnScroll);
 

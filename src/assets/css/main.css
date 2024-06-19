@@ -41,6 +41,9 @@ section {
 h3, p {
   margin: 0;
 }
+.img {
+  object-fit: cover;
+}
 
 @media screen and (max-width: 425px) {
   main {

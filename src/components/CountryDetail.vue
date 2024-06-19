@@ -1,20 +1,16 @@
 <script setup>
-import {defineProps} from 'vue';
-const { country, imageUrl } = defineProps(['country', 'imageUrl']);
+const { country, imageUrl, imageFlag } = defineProps(['country', 'imageUrl', 'imageFlag']);
 </script>
 
 <template>
-  <p-dialog  closeOnEscape modal header="Country Details" :style="{ width: '22.5rem' }" :pt="{
-                root: 'border-none',
-                mask: {
-                    style: 'backdrop-filter: blur(2px)'
-                }
-            }">
+  <p-dialog  closeOnEscape modal header="Country Details" :style="{ width: '22.5rem' }"
+             :pt="{ root: 'border-none', mask: { style: 'backdrop-filter: blur(2px)' } }"
+  >
     <div class="profile-card">
-      <img :src="imageUrl" alt="Country Image" class="profile-image" />
+      <p-image image-class="img-profile-image" :src="imageUrl" alt="Country Image" class="profile-image" width="100%" height="250px" preview/>
       <div class="profile-info">
         <div class="flag-container">
-          <img :src="`https://flagsapi.com/${country.code}/flat/64.png`" alt="Country Flag" class="country-flag" />
+          <p-image image-class="img-country-flag" :src="imageFlag" alt="Country Flag" class="country-flag" width="75px"/>
           <div>
             <h3>{{ country.name }}</h3>
             <p>{{ country.continent.name }}</p>
@@ -37,12 +33,6 @@ const { country, imageUrl } = defineProps(['country', 'imageUrl']);
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-  }
 }
 
 .profile-image {
@@ -62,17 +52,6 @@ const { country, imageUrl } = defineProps(['country', 'imageUrl']);
   display: flex;
   align-items: center;
   gap: 10px;
-
-  img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-  }
-}
-
-.country-flag {
-  width: 30px;
-  height: auto;
 }
 
 h3 {
