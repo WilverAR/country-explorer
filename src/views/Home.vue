@@ -59,7 +59,7 @@ const filteredCountries = computed(() => {
 .container-card-skeleton {
   flex-grow: 1;
   width: 350px;
-  height: 390px; /* Añadí esta línea para asegurar que el Skeleton tenga la misma altura */
+  height: 390px;
   gap: var(--gap);
 }
 
